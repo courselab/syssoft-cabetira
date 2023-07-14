@@ -14,7 +14,7 @@ make runDocrypt
 
  Beatriz Aparecida Diniz - 11925430
  
- Carol
+ Ana Carolina Simões Ramos - 11816035
  
  Rafael
  
