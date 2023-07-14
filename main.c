@@ -1,24 +1,55 @@
-/* main.c - <one-line-description>
+#include <stdbool.h>
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
 
-   Copyright (c) <year>, <author(s)-name>  <email(s)>
+int count = 0;
 
-   This file is part of <project>
+int readCharacterFromFile(char *character){
+    	FILE *file = fopen("rodataEnc.out", "rb");
 
-   <project> is free software: you can redistribute it and/or modify
-   it under the terms of the GNU General Public License as published by
-   the Free Software Foundation, either version 3 of the License, or
-   (at your option) any later version.
-   
-   This program is distributed in the hope that it will be useful,
-   but WITHOUT ANY WARRANTY; without even the implied warranty of
-   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-   GNU General Public License for more details.
-   
-   You should have received a copy of the GNU General Public License
-   along with this program.  If not, see <http://www.gnu.org/licenses/>.
-*/
+	if(file != NULL){
+		//posicao 234 eh onde comeca a chave do campo .rodata do encrypt
+        	fseek(file, 236, SEEK_SET);
+        
+		if(fread(character, 1, 4, file) != 4){
+        		printf("Erro ao ler o arquivo.\n");
+            		fclose(file);
+            		return 0;
+        	}
+        
+        	fclose(file);
+        	return 1;
+    	}else{
+        	printf("Erro ao abrir o arquivo.\n");
+        	return 0;
+    	}
+}
 
-int main()
-{
-    return 0 ;
+bool authorize(){
+	return true;
+}
+
+extern char *fgets (char *key, int size, FILE *stream){
+	count++;
+	if(count == 1)
+		printf("usuario nao importa\n");
+	if(count == 2)
+		printf("senha nao importa\n");
+
+	if(count == 3){
+		char auxKey[6] ={'\0'};
+		readCharacterFromFile(auxKey); 
+		auxKey[4] = '\n';
+		strcpy(key, auxKey);
+    		printf("%s", key);
+
+		return key;
+	}
+	return key;
+}
+
+
+int main(){
+	return 0;
 }
