@@ -2,9 +2,21 @@
  Your project name
  ==============================
   
- Please, edit this file to fit your own project's details.
+## Instruções
+
+```
+make getRodata
+make addPath
+make runDocrypt
+
+```
+## Membros
+
+ Beatriz Aparecida Diniz - 11925430
  
- Also, do not forget to
+ Carol
  
- - fill in file AUTHORS with the pertinent information
- - edit heading comments in all source files with your data
+ Rafael
+ 
+ Thiago
+
